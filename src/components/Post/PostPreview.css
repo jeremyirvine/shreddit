@@ -1,0 +1,15 @@
+.PostPreview {
+    background: #1A1A1B;
+    padding: 20px;
+    border: 1px solid #343536;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 700px;
+    margin-bottom: 20px;
+}
+
+
+.PostPreview:hover {
+    border: 1px solid whitesmoke;
+    
+}

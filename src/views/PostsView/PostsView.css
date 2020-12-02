@@ -1,0 +1,8 @@
+.PostsView {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.PostsView hr {
+    background: gray;
+}

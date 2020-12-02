@@ -1,0 +1,11 @@
+.Logo {
+    display: flex;
+}
+
+.Logo img {
+    margin-right: 5px;
+}
+
+.Logo.pointer {
+    cursor: pointer;
+}

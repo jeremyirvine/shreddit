@@ -1,0 +1,13 @@
+.NavBar {
+    background: #1A1A1B;
+    padding: 10px !important;
+    /* display: flex; */
+    /* width: calc(100% - 20px); */
+}
+.NavBar.left {
+    float: 1;
+}
+
+.NavBar.right {
+    flex: 1;
+}
