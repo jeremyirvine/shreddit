@@ -13,10 +13,10 @@ const NavBar = () => {
                     <Logo width={50} pointer text />
                 </div>
                 <div className="ml-auto mr-auto" style={{textAlign: 'center'}}>
-                    <h2>hi</h2>
+                    {/* <h2>hi</h2> */}
                 </div>
                 <div className="ml-auto mr-2">
-                    <h2>hi</h2>
+                    {/* <h2>hi</h2> */}
                 </div>
             </div>
         </div>

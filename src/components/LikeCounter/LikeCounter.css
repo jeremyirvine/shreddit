@@ -1,0 +1,14 @@
+.LikeCounter.up {
+    color: var(--upvote-color);
+}
+
+.LikeCounter.down {
+    color: var(--downvote-color);
+}
+
+.LikeCounter {
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}

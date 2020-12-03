@@ -1,6 +1,6 @@
 .PostsView {
     width: 100%;
-    margin-top: 20px;
+    margin-top: calc(76px + 20px);
 }
 
 .PostsView hr {

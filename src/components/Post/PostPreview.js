@@ -4,8 +4,9 @@ import './PostPreview.css'
 
 import moment from 'moment'
 
-const PostPreview = ({title, user, timestamp, text}) => {
+const PostPreview = ({title, user, timestamp, text, children}) => {
     
+    moment.suppressDeprecationWarnings = true
     const getTimeFromNow = time => moment(time).fromNow()
 
     return ( 
@@ -14,6 +15,7 @@ const PostPreview = ({title, user, timestamp, text}) => {
             <hr />
             <p>{text}</p>
             <hr />
+            {children}
         </div>
      );
 }
