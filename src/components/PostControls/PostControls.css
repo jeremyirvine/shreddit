@@ -1,5 +1,6 @@
 .PostControls {
     display: flex;
+    cursor: pointer;
 }
 
 .PostControls p {

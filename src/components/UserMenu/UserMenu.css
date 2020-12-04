@@ -1,0 +1,22 @@
+.UserMenu {
+    display: flex;
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 5px;
+    transition: .3s all;
+    cursor: pointer;
+}
+
+.UserMenu:hover {
+    border: 1px solid white;
+}
+
+.UserMenu p {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.UserMenu img { 
+    width: 50px;
+    border-radius: 50%;
+}

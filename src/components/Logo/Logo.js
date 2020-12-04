@@ -7,12 +7,11 @@ const Logo = ({width, height, onClick, pointer, text}) => {
     pointer && classes.push('pointer')
 
     return ( 
-        <div className={classes.join(" ")}>
+        <div className={classes.join(" ")}  onClick={onClick}>
             <img 
                 width={width} 
                 height={height} 
                 src={logo}
-                onClick={onClick}
                 alt="Shreddit Logo"
                  />
 

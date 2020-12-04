@@ -1,10 +1,10 @@
 import React from 'react';
 
 import './PostsView.css'
-import PostPreview from '../../components/Post/PostPreview';
+import PostPreview from '../../components/PostPreview/PostPreview';
 import PostControls from '../../components/PostControls/PostControls';
 
-const PostsView = ({ users, posts, onUpvote, onDownvote }) => {
+const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser }) => {
 
     const getUser = id => users.find(user => user.id == id)
 
@@ -30,7 +30,9 @@ const PostsView = ({ users, posts, onUpvote, onDownvote }) => {
                         user={getUser(post.authorID)}
                         timestamp={post.timePosted}
                         text={getPostPreviewString(post.text)}
-                        key={post.postID} >
+                        key={post.postID} 
+                        click={() => onViewPost(post)}
+                        op={currentUser == post.authorID}>
                         <PostControls
                             onUpvote={() => onUpvote(post)}
                             onDownvote={() => onDownvote(post)}

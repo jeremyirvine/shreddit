@@ -6,6 +6,7 @@ import userData from './data/users'
 
 import NavBar from './components/NavBar/NavBar';
 import PostsView from './views/PostsView/PostsView';
+import FullPostView from './views/FullPostView/FullPostView';
 
 function App() {
 
@@ -32,6 +33,10 @@ function App() {
     ])
   }
 
+  const getPostById = id => {
+    return posts.find(post => post.id === id)
+  }
+
   const handleUpvote = post => {
     let userCopy = {...state.currentUser}
       
@@ -46,13 +51,13 @@ function App() {
         ...state,
         currentUser: userCopy
       })
-
     } else {
       
       if(userCopy.likes.find(like => like.postID == post.postID).value < 0)
       {
         changePost(post, "likes", +post.likes + 2)
         userCopy.likes.find(like => like.postID == post.postID).value = 1
+        
       } else {
         
         changePost(post, "likes", +post.likes - 1)
@@ -91,17 +96,41 @@ function App() {
     }
   }
 
+  const handleViewPost = post => {
+    setState({
+      ...state,
+      viewingPost: post.postID,
+      isViewingPost: true
+    })
+  }
+
+  const exitViewPost = () => {
+    setState({
+      ...state,
+      viewingPost: {},
+      isViewingPost: false
+    })
+  }
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar
+        onLogoClick={exitViewPost}
+        user={state.currentUser} />
       {!state.isViewingPost ? (
         <PostsView 
           posts={posts} 
           users={users}
           onUpvote={handleUpvote}
-          onDownvote={handleDownvote} />
+          onDownvote={handleDownvote}
+          onViewPost={handleViewPost}
+          currentUser={state.currentUser.id} />
       ) : (
-        null
+        <FullPostView 
+          post={posts.find(post => post.postID === state.viewingPost)} 
+          users={users}
+          onUpvote={handleUpvote}
+          onDownvote={handleDownvote} />
       )}
     </div>
   );

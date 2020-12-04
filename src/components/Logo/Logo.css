@@ -6,6 +6,11 @@
     margin-right: 5px;
 }
 
+.Logo h1 {
+    position: relative;
+    top: 5px;
+}
+
 .Logo.pointer {
     cursor: pointer;
 }
