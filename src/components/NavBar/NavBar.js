@@ -6,7 +6,7 @@ import Logo from '../Logo/Logo';
 import UserMenu from '../UserMenu/UserMenu';
 
 
-const NavBar = ({onLogoClick, user}) => {
+const NavBar = ({onLogoClick, user, onUserClick}) => {
     return ( 
         <div className="NavBar">
             <div className="row ml-1" style={{width: "100%"}}>
@@ -21,7 +21,7 @@ const NavBar = ({onLogoClick, user}) => {
                     {/* <h2>hi</h2> */}
                 </div>
                 <div className="ml-auto mr-2">
-                    <UserMenu user={user} />
+                    <UserMenu user={user} click={onUserClick} />
                 </div>
             </div>
         </div>

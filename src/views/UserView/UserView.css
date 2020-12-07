@@ -1,0 +1,29 @@
+.UserView .ml-auto {
+    margin-top: 92px;
+    background: #1A1A1B;
+    padding: 20px;
+    width: 700px;
+    z-index: 1;
+    border-radius: 5px;
+}
+.UserView .op {
+    color: #4FBCFF;
+    font-weight: bold;
+}
+
+.UserView img {
+    border-radius: 50%;
+    width: 75px;
+}
+
+.UserView h4, .UserView small {
+    color: gray;
+}
+
+.UserView hr {
+    background: white;
+}
+
+.UserView .PostPreview {
+    width: 646px;
+}

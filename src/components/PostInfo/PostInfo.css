@@ -2,3 +2,12 @@
     color: #4FBCFF;
     font-weight: bold;
 }
+
+
+.PostInfo .username {
+    cursor: pointer;
+}
+
+.PostInfo .username:hover {
+    text-decoration: underline;
+}

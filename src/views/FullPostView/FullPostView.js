@@ -3,7 +3,7 @@ import PostControls from '../../components/PostControls/PostControls';
 import PostInfo from '../../components/PostInfo/PostInfo';
 import './FullPostView.css'
 
-const FullPostView = ({post, users, onDownvote, onUpvote}) => {
+const FullPostView = ({currentUser, post, users, onDownvote, onUpvote, onUserClick}) => {
     
     const getUser = id => users.find(user => user.id == id)
 
@@ -17,6 +17,7 @@ const FullPostView = ({post, users, onDownvote, onUpvote}) => {
             hasVoted: false
         }
      }
+
     
     return ( 
         <div className="row">
@@ -25,7 +26,10 @@ const FullPostView = ({post, users, onDownvote, onUpvote}) => {
                     <PostInfo 
                         title={post.title}
                         timestamp={post.timePosted}
-                        username={getUser(post.authorID).name}/>
+                        username={getUser(post.authorID).name}
+                        click={onUserClick}
+                        user={post.authorID}
+                        op={currentUser == post.authorID}/>
                     <hr />
                     <p>
                         {post.text}

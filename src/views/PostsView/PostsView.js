@@ -4,14 +4,14 @@ import './PostsView.css'
 import PostPreview from '../../components/PostPreview/PostPreview';
 import PostControls from '../../components/PostControls/PostControls';
 
-const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser }) => {
+const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser, onlyUser, margin, user, onUserClick}) => {
 
     const getUser = id => users.find(user => user.id == id)
 
     const getPostPreviewString = text => text.length > 90 ? text.slice(0, 90) + "..." : text
 
     const getVoted = post => {
-       let m = getUser(post.authorID).likes.find(p => p.postID === post.postID)
+       let m = getUser(currentUser).likes.find(p => p.postID === post.postID)
 
        return m ? {
            hasVoted: m !== undefined,
@@ -20,11 +20,23 @@ const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser
            hasVoted: false
        }
     }
+
+    let pArr = [...posts]
+
+    if(onlyUser) {
+        console.log(currentUser)
+        pArr = pArr.filter(p => p.authorID == user.id)
+    }
+
+    let style = {}
+
+    if(margin)
+        style = {marginTop: margin}
     
     return (
-        <div className="PostsView row">
-            <div className="ml-auto mr-auto">
-                {posts.map(post => (
+        <div className="PostsView row" style={style}>
+            <div className="ml-auto mr-auto" >
+                {pArr.map(post => (
                     <PostPreview
                         title={post.title}
                         user={getUser(post.authorID)}
@@ -32,7 +44,8 @@ const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser
                         text={getPostPreviewString(post.text)}
                         key={post.postID} 
                         click={() => onViewPost(post)}
-                        op={currentUser == post.authorID}>
+                        op={currentUser == post.authorID}
+                        onUserClick={onUserClick}>
                         <PostControls
                             onUpvote={() => onUpvote(post)}
                             onDownvote={() => onDownvote(post)}

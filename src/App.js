@@ -7,6 +7,7 @@ import userData from './data/users'
 import NavBar from './components/NavBar/NavBar';
 import PostsView from './views/PostsView/PostsView';
 import FullPostView from './views/FullPostView/FullPostView';
+import UserView from './views/UserView/UserView';
 
 function App() {
 
@@ -108,30 +109,58 @@ function App() {
     setState({
       ...state,
       viewingPost: {},
-      isViewingPost: false
+      isViewingPost: false,
+      isViewingUser: false,
+      viewingUser: {}
     })
   }
 
+  const handleViewUser = user => {
+    setState({
+      ...state,
+      isViewingUser: true,
+      viewingUser: user
+    })
+  }
+
+  let content = !state.isViewingPost ? (
+    <PostsView 
+      posts={posts} 
+      users={users}
+      onUpvote={handleUpvote}
+      onDownvote={handleDownvote}
+      onViewPost={handleViewPost}
+      currentUser={state.currentUser.id} 
+      onUserClick={handleViewUser}/>
+  ) : (
+    <FullPostView 
+      post={posts.find(post => post.postID === state.viewingPost)} 
+      users={users}
+      currentUser={state.currentUserId}
+      onUpvote={handleUpvote}
+      onDownvote={handleDownvote}
+      onUserClick={handleViewUser} />
+  )
   return (
     <div className="App">
       <NavBar
         onLogoClick={exitViewPost}
-        user={state.currentUser} />
-      {!state.isViewingPost ? (
-        <PostsView 
-          posts={posts} 
-          users={users}
-          onUpvote={handleUpvote}
-          onDownvote={handleDownvote}
-          onViewPost={handleViewPost}
-          currentUser={state.currentUser.id} />
-      ) : (
-        <FullPostView 
-          post={posts.find(post => post.postID === state.viewingPost)} 
-          users={users}
-          onUpvote={handleUpvote}
-          onDownvote={handleDownvote} />
-      )}
+        user={state.currentUser}
+        onUserClick={handleViewUser}
+         />
+         {state.isViewingUser ? (
+           <UserView 
+            user={users.find(user => user.id == state.viewingUser)}
+            currentUser={state.currentUserId}
+            op={state.viewingUser == state.currentUserId}
+            posts={posts} 
+            users={users}
+            onUpvote={handleUpvote}
+            onDownvote={handleDownvote}
+            onViewPost={handleViewPost}
+            currentUser={state.currentUserId}
+            onUserClick={handleViewUser} />
+         ) : content}
     </div>
   );
 }

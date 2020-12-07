@@ -4,7 +4,7 @@ import PostInfo from '../PostInfo/PostInfo';
 import './PostPreview.css'
 
 
-const PostPreview = ({title, user, timestamp, text, children, click, op}) => {
+const PostPreview = ({title, user, timestamp, text, children, click, op, onUserClick}) => {
     // let username
     // try {
     //     username = user.name
@@ -14,12 +14,14 @@ const PostPreview = ({title, user, timestamp, text, children, click, op}) => {
     // }
     return ( 
         <div className="PostPreview" >
-            <div onClick={click}>
-                <PostInfo 
+            <PostInfo 
                     title={title}
                     username={user.name}
                     timestamp={timestamp}
-                    op={op} />
+                    op={op}
+                    click={onUserClick}
+                    user={typeof user == "object" ? user.id : user} />
+            <div onClick={click}>
                 <hr />
                 <p>{text}</p>
             </div>
