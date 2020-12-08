@@ -1,0 +1,22 @@
+.AddPostInput {
+    background: #1A1A1B;
+    padding: 20px;
+    border: 1px solid #343536;
+    border-radius: 5px;
+    width: 700px;
+    margin-bottom: 20px;
+}
+
+.AddPostInput button {
+    margin-top: 10px;
+}
+
+.AddPostInput .form-control {
+    background: transparent !important;
+    color: white;
+    margin-bottom: 10px;
+}
+
+::placeholder {
+    color: gray;
+}

@@ -123,6 +123,27 @@ function App() {
     })
   }
 
+  const handleCreatePost = post => {
+    // console.log({
+    //   ...post
+    // })
+
+    let newPost = {
+      postID: ((Math.random()* 100090).toString(16)).replace(".", ""),
+      title: post.title,
+      text: post.content,
+      timePosted: new Date().toString(),
+      likes: 0,
+      authorID: state.currentUserId,
+      comments: []
+    }
+
+    setPosts([
+      ...posts,
+      newPost
+    ])
+  }
+
   let content = !state.isViewingPost ? (
     <PostsView 
       posts={posts} 
@@ -131,7 +152,9 @@ function App() {
       onDownvote={handleDownvote}
       onViewPost={handleViewPost}
       currentUser={state.currentUser.id} 
-      onUserClick={handleViewUser}/>
+      onUserClick={handleViewUser} 
+      onPost={handleCreatePost}
+      showCreatePost />
   ) : (
     <FullPostView 
       post={posts.find(post => post.postID === state.viewingPost)} 

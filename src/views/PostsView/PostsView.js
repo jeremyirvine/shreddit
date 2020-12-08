@@ -3,8 +3,9 @@ import React from 'react';
 import './PostsView.css'
 import PostPreview from '../../components/PostPreview/PostPreview';
 import PostControls from '../../components/PostControls/PostControls';
+import AddPostInput from '../../components/AddPostInput/AddPostInput';
 
-const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser, onlyUser, margin, user, onUserClick}) => {
+const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser, onlyUser, margin, user, onUserClick, onPost, showCreatePost}) => {
 
     const getUser = id => users.find(user => user.id == id)
 
@@ -36,6 +37,8 @@ const PostsView = ({ users, posts, onUpvote, onDownvote, onViewPost, currentUser
     return (
         <div className="PostsView row" style={style}>
             <div className="ml-auto mr-auto" >
+                {showCreatePost && <AddPostInput 
+                    onPost={onPost} />}
                 {pArr.map(post => (
                     <PostPreview
                         title={post.title}
