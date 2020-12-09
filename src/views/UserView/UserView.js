@@ -16,7 +16,7 @@ const UserView = (props) => {
                     </div>
                     <div className="col">
 
-                        {props.op && <button className="btn btn-success">Edit Profile</button>}
+                        {/* {props.op && <button className="btn btn-success">Edit Profile</button>} */}
                     </div>
                 </div>
                 

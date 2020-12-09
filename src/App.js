@@ -11,7 +11,7 @@ import UserView from './views/UserView/UserView';
 
 function App() {
 
-  const [posts, setPosts] = useState(postsData)
+  const [posts, setPosts] = useState(postsData.reverse())
   const [users, setUsers] = useState(userData)
   const [state, setState] = useState({ 
     isViewingPost: false,
@@ -48,10 +48,10 @@ function App() {
         value: 1
       })
 
-      setState({
-        ...state,
-        currentUser: userCopy
-      })
+      // setState({
+      //   ...state,
+      //   currentUser: userCopy
+      // })
     } else {
       
       if(userCopy.likes.find(like => like.postID == post.postID).value < 0)
@@ -124,10 +124,6 @@ function App() {
   }
 
   const handleCreatePost = post => {
-    // console.log({
-    //   ...post
-    // })
-
     let newPost = {
       postID: ((Math.random()* 100090).toString(16)).replace(".", ""),
       title: post.title,
@@ -139,8 +135,8 @@ function App() {
     }
 
     setPosts([
+      newPost,
       ...posts,
-      newPost
     ])
   }
 

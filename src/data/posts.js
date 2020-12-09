@@ -1,8 +1,8 @@
 const posts = [
     {
         "postID": "43t54g35",
-        "title": "Test Post",
-        "text": "This is a test post",
+        "title": "Get It?",
+        "text": "... because its tr..[removed by moderator]",
         "timePosted": "Thu Dec 03 2020 10:57:55 GMT-0800 (Pacific Standard Time)",
         "likes": "20",
         "authorID": "45rg893hr",
