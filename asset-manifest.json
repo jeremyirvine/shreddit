@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/shreddit/static/css/main.289af1bc.chunk.css",
+    "main.js": "/shreddit/static/js/main.f9a228cf.chunk.js",
+    "main.js.map": "/shreddit/static/js/main.f9a228cf.chunk.js.map",
+    "runtime-main.js": "/shreddit/static/js/runtime-main.6deb0583.js",
+    "runtime-main.js.map": "/shreddit/static/js/runtime-main.6deb0583.js.map",
+    "static/js/2.bcc112a1.chunk.js": "/shreddit/static/js/2.bcc112a1.chunk.js",
+    "static/js/2.bcc112a1.chunk.js.map": "/shreddit/static/js/2.bcc112a1.chunk.js.map",
+    "static/js/3.54ba5ce2.chunk.js": "/shreddit/static/js/3.54ba5ce2.chunk.js",
+    "static/js/3.54ba5ce2.chunk.js.map": "/shreddit/static/js/3.54ba5ce2.chunk.js.map",
+    "index.html": "/shreddit/index.html",
+    "static/css/main.289af1bc.chunk.css.map": "/shreddit/static/css/main.289af1bc.chunk.css.map",
+    "static/js/2.bcc112a1.chunk.js.LICENSE.txt": "/shreddit/static/js/2.bcc112a1.chunk.js.LICENSE.txt",
+    "static/media/logo.d372719e.svg": "/shreddit/static/media/logo.d372719e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6deb0583.js",
+    "static/js/2.bcc112a1.chunk.js",
+    "static/css/main.289af1bc.chunk.css",
+    "static/js/main.f9a228cf.chunk.js"
+  ]
+}
